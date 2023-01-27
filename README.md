@@ -20,3 +20,9 @@ http://localhost:8080/swagger-ui.html
 ##### 4. Good luck and have fun
 
 _Note that should you encounter any problems or have any questions, please do not hesitate to contact us for assistance =)_ 
+
+
+
+To run the Scenarios in Robot Framework,use the command
+
+robot ...filename.robot under TestCases folder.
