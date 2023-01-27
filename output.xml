@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20230124 20:34:22.591" rpa="false" schemaversion="3">
+<suite id="s1" name="Tc007 Fileuploadwithpost" source="c:\Users\NISHTHA MISHRA\OneDrive\Documents\oppenheimer-project-dev\testcases\tc007_fileuploadwithpost.robot">
+<test id="s1-t1" name="Post Request With File" line="15">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${BASE_URL}</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230124 20:34:22.852" level="INFO">Creating Session using : alias=mysession, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20230124 20:34:22.852" endtime="20230124 20:34:22.859"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${data}</var>
+<arg>inputFileTypeId=1</arg>
+<arg>dataType=csv</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230124 20:34:22.861" level="INFO">${data} = {'inputFileTypeId': '1', 'dataType': 'csv'}</msg>
+<status status="PASS" starttime="20230124 20:34:22.860" endtime="20230124 20:34:22.861"/>
+</kw>
+<kw name="Get Binary File" library="OperatingSystem">
+<var>${file_data}</var>
+<arg>c:\\Users\\NISHTHA MISHRA\\OneDrive\\Documents\\oppenheimer-project-dev\\testcases${/}test.csv</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20230124 20:34:22.863" level="INFO" html="true">Getting file '&lt;a href="file://c:\Users\NISHTHA MISHRA\OneDrive\Documents\oppenheimer-project-dev\testcases\test.csv"&gt;c:\Users\NISHTHA MISHRA\OneDrive\Documents\oppenheimer-project-dev\testcases\test.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20230124 20:34:22.863" level="INFO">${file_data} = </msg>
+<status status="PASS" starttime="20230124 20:34:22.862" endtime="20230124 20:34:22.863"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${files}</var>
+<arg>file=${file_data}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230124 20:34:22.865" level="INFO">${files} = {'file': b''}</msg>
+<status status="PASS" starttime="20230124 20:34:22.864" endtime="20230124 20:34:22.865"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${files}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230124 20:34:22.867" level="INFO">{'file': b''}</msg>
+<status status="PASS" starttime="20230124 20:34:22.866" endtime="20230124 20:34:22.867"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${file_data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230124 20:34:22.869" level="INFO"/>
+<status status="PASS" starttime="20230124 20:34:22.868" endtime="20230124 20:34:22.869"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230124 20:34:22.874" level="INFO">{'inputFileTypeId': '1', 'dataType': 'csv'}</msg>
+<status status="PASS" starttime="20230124 20:34:22.872" endtime="20230124 20:34:22.874"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>Request mysession ${Base_Url}</arg>
+<arg>/calculator/uploadLargeFileForInsertionToDatabase</arg>
+<arg>/anything</arg>
+<arg>files=${files} data=${data}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20230124 20:34:22.880" level="FAIL">ValueError: Data must not be a string.</msg>
+<status status="FAIL" starttime="20230124 20:34:22.875" endtime="20230124 20:34:22.883"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${resp}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20230124 20:34:22.884" endtime="20230124 20:34:22.884"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" starttime="20230124 20:34:22.885" endtime="20230124 20:34:22.886"/>
+</kw>
+<tag>post</tag>
+<status status="FAIL" starttime="20230124 20:34:22.850" endtime="20230124 20:34:22.887">ValueError: Data must not be a string.</status>
+</test>
+<status status="FAIL" starttime="20230124 20:34:22.600" endtime="20230124 20:34:22.893"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">post</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tc007 Fileuploadwithpost">Tc007 Fileuploadwithpost</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
