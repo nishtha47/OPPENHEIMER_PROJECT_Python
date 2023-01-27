@@ -19,7 +19,7 @@ http://localhost:8080/swagger-ui.html
 
 ##### 4. Good luck and have fun
 
-#Setup of Robot Framework
+# Setup of Robot Framework
 
 
 Step 1 : Pre-check
@@ -51,6 +51,6 @@ Step 5 : Check on cmd :
   
 
 
-To run the Scenarios in Robot Framework,use the command
+ ### To run the Scenarios in Robot Framework,use the command ###
 
 robot ...filename.robot under TestCases folder.
