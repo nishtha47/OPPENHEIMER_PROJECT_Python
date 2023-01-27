@@ -19,8 +19,36 @@ http://localhost:8080/swagger-ui.html
 
 ##### 4. Good luck and have fun
 
-_Note that should you encounter any problems or have any questions, please do not hesitate to contact us for assistance =)_ 
+Setup of Robot Framework
 
+
+Step 1 : Pre-check
+       Check if python is already installed
+  python --version
+  pip --version
+       Check if robot framework is already installed
+  robot --version
+
+Step 2 : Install Python 
+      check on cmd : python --version
+          pip --version
+
+Step 3 : Set Python in environment variables
+      C:\Python27;C:\Python27\Scripts;
+      Check: 
+                python --version
+  pip --version
+
+Step 4 : Install robot framework
+       pip install robotframework
+       to uninstall : pip uninstall robotframework
+
+Step 5 : Check on cmd :
+  robot --version
+  pybot --version
+  
+  Step 6: Install Robot framework extension in VS Code or any IDE.
+  
 
 
 To run the Scenarios in Robot Framework,use the command
